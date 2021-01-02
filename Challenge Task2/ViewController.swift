@@ -12,58 +12,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     
-    @IBOutlet weak var SegmentedControl: UISegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-  
-    @IBOutlet weak var Label: UILabel!
-    
-    @IBOutlet weak var calculator: UISegmentedControl!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
-    
-    
-    
-    @IBAction func ValueChanged(_ sender: Any) {
-        
-
-    }
-    
+    @IBOutlet weak var label: UILabel!
     
     @IBAction func didTapButton(_ sender: Any) {
         
-        var number1 = Int(textField1.text ?? "") ?? 0
-        var number2 = Int(textField2.text ?? "") ?? 0
-
+        let number1 = Int(textField1.text ?? "") ?? 0
+        let number2 = Int(textField2.text ?? "") ?? 0
     
-        if SegmentedControl.selectedSegmentIndex == 0 {
-            
-            let totalNumber = number1 + number2
-            
-            Label.text = String(totalNumber)
-           
-            
-        } else if SegmentedControl.selectedSegmentIndex == 1 {
-            
-            let totalNumber = number1 - number2
-            
-            Label.text = String(totalNumber)
-            
-        } else if SegmentedControl.selectedSegmentIndex == 2 {
-            
-            
-            let totalNumber = number1 * number2
-            
-            Label.text = String(totalNumber)
-            
-        } else if SegmentedControl.selectedSegmentIndex == 3 {
+        let totalNumber: Int
         
-            if number2 == 0 {
-                
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            totalNumber = number1 + number2
+        case 1:
+            totalNumber = number1 - number2
+        case 2:
+            totalNumber = number1 * number2
+        case 3:
+            guard number2 != 0 else {
                 //アラートのタイトル
                 let dialog = UIAlertController(title: "エラー", message: "0で割ることはできません", preferredStyle: .alert)
                 //ボタンのタイトル
@@ -71,21 +39,14 @@ class ViewController: UIViewController {
                 //実際に表示させる
                 self.present(dialog, animated: true, completion: nil)
                 
-            } else {
-                                
-                let totalNumber = number1 / number2
-                
-                Label.text = String(totalNumber)
-                
-                
+                return
             }
             
-
-        
+            totalNumber = number1 / number2
+        default:
+            return
         }
         
+        label.text = String(totalNumber)
     }
-    
-    
 }
-

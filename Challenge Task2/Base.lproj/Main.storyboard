@@ -31,9 +31,6 @@
                                     <segment title="×"/>
                                     <segment title="÷"/>
                                 </segments>
-                                <connections>
-                                    <action selector="ValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mP4-HP-e9c"/>
-                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5D-Cx-C7g">
                                 <rect key="frame" x="94" y="292" width="227" height="30"/>
@@ -65,8 +62,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="Label" destination="ExH-U3-mbh" id="GRx-H9-Ig5"/>
-                        <outlet property="SegmentedControl" destination="AHd-vi-XGx" id="EdU-JT-ZDm"/>
+                        <outlet property="label" destination="ExH-U3-mbh" id="sEb-HE-WLn"/>
+                        <outlet property="segmentedControl" destination="AHd-vi-XGx" id="fpJ-qF-Mon"/>
                         <outlet property="textField1" destination="J6X-3i-iUf" id="s09-nr-34g"/>
                         <outlet property="textField2" destination="RmR-ER-Z31" id="GxM-go-kNf"/>
                     </connections>
